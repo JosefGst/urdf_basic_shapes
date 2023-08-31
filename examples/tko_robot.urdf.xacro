@@ -47,7 +47,7 @@
     </joint>
 
     <!-- tail -->
-    <xacro:cube name="tail" x="1.06169" y=".2" z=".05" ori="-${1.06169/2} 0 0" rpy="0 0 0" rgb="Grey" m="3" friction="${standard_friction}"/>
+    <xacro:cube name="tail" x="1.010" y=".2" z=".05" ori="-${1.010/2} 0 0" rpy="0 0 0" rgb="Grey" m="3" friction="${standard_friction}"/>
     <joint name="tail_joint" type="fixed">
         <parent link="base_link"/>
         <child link="tail"/>
@@ -79,7 +79,8 @@
 
     <!-- Hokuyo Laser Back-->
     <xacro:include filename="$(find urdf_basic_shapes)/sensors/hokuyo.urdf.xacro"/>
-    <xacro:hokuyo name="scan_back" xyz="-.9765 0 0" rpy="${pi} 0 ${pi}" parent="base_link" topic="/lidarBack/scan"/>
+    <xacro:hokuyo name="scan_back" xyz="-1.02147 0 0.0" rpy="${pi} -${pi/30} ${pi}" parent="base_link" min_a="${-pi}" max_a="${pi}" topic="/lidarBack/scan"/>
+    <!-- <xacro:hokuyo name="scan_back" xyz="-.9765 0 0" rpy="${pi} 0 ${pi}" parent="base_link" topic="/lidarBack/scan"/> -->
     <!-- Hokuyo Laser Front-->
     <xacro:hokuyo name="scan_front" xyz=".14 0.0 0.23" rpy="0 0 0" parent="base_link" topic="/lidarFront/scan"/>
 
@@ -104,8 +105,8 @@
     <xacro:depth_cam name="cameraB" xyz="-.3 0 ${.7045-.075}" rpy="0 0 ${pi}" parent="base_link"/>
 
     <!-- Sonar -->
-    <xacro:include filename="$(find urdf_basic_shapes)/sensors/sonar.urdf.xacro"/>
+    <!-- <xacro:include filename="$(find urdf_basic_shapes)/sensors/sonar.urdf.xacro"/>
     <xacro:sonar name="sonarR" xyz="-${1.1-0.00331} -.05 .05" rpy="0 -.0872665 ${pi + 0.174533}" parent="base_link" min_a="-0.05" max_a="0.05" topic="sonarR"/>
-    <xacro:sonar name="sonarL" xyz="-${1.1-0.00331} .05 .05" rpy="0 -.0872665 ${pi - 0.174533}" parent="base_link" min_a="-0.05" max_a="0.05" topic="sonarL"/>
+    <xacro:sonar name="sonarL" xyz="-${1.1-0.00331} .05 .05" rpy="0 -.0872665 ${pi - 0.174533}" parent="base_link" min_a="-0.05" max_a="0.05" topic="sonarL"/> -->
 
 </robot>
