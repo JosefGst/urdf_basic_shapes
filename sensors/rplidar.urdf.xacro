@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot name="rplidar" xmlns:xacro="http://wiki.ros.org/xacro">
 
-    <xacro:macro name="rplidar" params="name xyz rpy parent topic">
+    <xacro:macro name="rplidar" params="name xyz rpy parent min_a max_a topic:=scan">
         <link name="${name}">
             <visual>
             <origin rpy="0 0 0" xyz="0 0 0.01"/>
