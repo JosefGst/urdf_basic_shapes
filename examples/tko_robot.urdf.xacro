@@ -86,7 +86,7 @@
 
     <!-- TOP 3D Olei Lidar  -->
     <xacro:include filename="$(find urdf_basic_shapes)/sensors/velodyne.urdf.xacro"/>
-    <xacro:velodyne16 name="olei_lidar" xyz="0 0 1.515" rpy="0 0 0" parent="base_link"/>
+    <xacro:velodyne16 name="olei" xyz="0 0 1.515" rpy="0 0 0" parent="base_link"/>
     <!-- add scan topic to velodyne lidar-->
     <!-- <xacro:hokuyo name="olei_lidar" xyz="0 0 1.515" rpy="0 0 0" parent="base_link" min_a="${-pi}" max_a="${pi}" topic="scan"/> -->
     <!-- VERTICAL 3D Olei Lidar  -->
