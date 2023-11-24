@@ -21,7 +21,7 @@
                 <topic>${name}</topic>
                 <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
                     <topicName>${name}</topicName>
-                    <remapping>~/out:=${name}</remapping>
+                    <remapping>~/out:=${name}/data_raw</remapping>
                     <bodyName>${name}</bodyName>
                     <updateRateHZ>200.0</updateRateHZ>
                     <gaussianNoise>0.0</gaussianNoise>
