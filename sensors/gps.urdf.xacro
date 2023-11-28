@@ -32,18 +32,32 @@
         </joint>
 
         <gazebo reference="${name}">
-            <sensor name="my_gps" type="gps">
-                <!-- ensure the sensor is active (required) -->
+            <sensor name="${name}" type="gps">
                 <always_on>true</always_on>
-                <update_rate>30</update_rate>
+                <update_rate>1</update_rate>
+                <pose>0 0 0 0 0 0</pose>
+                <gps>
+                  <position_sensing>
+                    <horizontal>
+                      <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>0.01</stddev>
+                      </noise>
+                    </horizontal>
+                    <vertical>
+                      <noise type="gaussian">
+                        <mean>0.0</mean>
+                        <stddev>0.01</stddev>
+                      </noise>
+                    </vertical>
+                  </position_sensing>
+                </gps>
                 <plugin name="my_gps_plugin" filename="libgazebo_ros_gps_sensor.so">
-                    <ros>
-                        <!-- publish to /gps/data -->
-                        <namespace>/gps</namespace>
-                        <remapping>~/out:=data</remapping>
-                    </ros>
+                  <ros>
+                    <remapping>~/out:=/gps/fix</remapping>
+                  </ros>
                 </plugin>
-            </sensor>
+              </sensor>
         </gazebo>
 
     </xacro:macro>
